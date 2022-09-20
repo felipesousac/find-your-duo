@@ -4,6 +4,7 @@ import logoImg from './assets/logo-nlw-esports.svg'
 import { GameBanner } from './components/GameBanner'
 import { CreateAdBanner } from './components/CreateAdBanner'
 import { useEffect, useState } from 'react'
+import * as Dialog from '@radix-ui/react-dialog'
 
 interface Game {
   id: string
@@ -50,7 +51,19 @@ function App() {
         })}
       </div>
 
-      <CreateAdBanner />
+      <Dialog.Root>
+        <CreateAdBanner />
+
+        <Dialog.Portal>
+          <Dialog.Overlay />
+
+          <Dialog.Content>
+            <Dialog.Title>Publique um anúncio</Dialog.Title>
+
+            <Dialog.Content>Testando modal</Dialog.Content>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </div>
   )
 }
