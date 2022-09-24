@@ -9,15 +9,24 @@ import { GameParams } from '../../@types/navigation'
 import { TouchableOpacity, View, Image } from 'react-native'
 import { THEME } from '../../theme'
 import { Heading } from '../../components/Heading'
+import { DuoCard } from '../../components/DuoCard'
+import { useEffect, useState } from 'react'
 
 export function Game() {
   const navigation = useNavigation()
   const route = useRoute()
   const game = route.params as GameParams
+  const [duos, setDuos] = useState([])
 
   function handleGoBack() {
     navigation.goBack()
   }
+
+  useEffect(() => {
+    fetch(`http://192.168.1.26:3333/games/${game.id}/ads`)
+      .then(response => response.json())
+      .then(data => setDuos(data))
+  }, [])
 
   return (
     <Background>
@@ -41,6 +50,8 @@ export function Game() {
         />
 
         <Heading title={game.title} subtitle="Conecte-se e comece a jogar!" />
+
+        <DuoCard />
       </SafeAreaView>
     </Background>
   )
