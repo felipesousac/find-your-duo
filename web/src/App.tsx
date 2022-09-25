@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import { CreateAdModal } from './components/CreateAdModal'
 import * as Dialog from '@radix-ui/react-dialog'
 
-interface Game {
+export interface Game {
   id: string
   title: string
   bannerUrl: string
