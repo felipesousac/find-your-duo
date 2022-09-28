@@ -8,6 +8,7 @@ import { Game } from '../App'
 
 export function CreateAdModal() {
   const [games, setGames] = useState<Game[]>([])
+  const [weekDays, setWeekDays] = useState<string[]>([])
 
   useEffect(() => {
     fetch('http://localhost:3333/games')
@@ -88,52 +89,68 @@ export function CreateAdModal() {
               <ToggleGroup.Root
                 type="multiple"
                 className="grid grid-cols-4 gap-2"
+                value={weekDays}
+                onValueChange={setWeekDays}
               >
                 <ToggleGroup.Item
                   value="0"
-                  className="w-8 h-8 rounded bg-zinc-900 "
+                  className={`w-8 h-8 rounded transition ${
+                    weekDays.includes('0') ? 'bg-violet-500' : 'bg-zinc-900'
+                  }`}
                   title="Domingo"
                 >
                   D
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value="1"
-                  className="w-8 h-8 rounded bg-zinc-900 "
+                  className={`w-8 h-8 rounded transition ${
+                    weekDays.includes('1') ? 'bg-violet-500' : 'bg-zinc-900'
+                  }`}
                   title="Segunda"
                 >
                   S
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value="2"
-                  className="w-8 h-8 rounded bg-zinc-900 "
+                  className={`w-8 h-8 rounded transition ${
+                    weekDays.includes('2') ? 'bg-violet-500' : 'bg-zinc-900'
+                  }`}
                   title="Terça"
                 >
                   T
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value="3"
-                  className="w-8 h-8 rounded bg-zinc-900 "
+                  className={`w-8 h-8 rounded transition ${
+                    weekDays.includes('3') ? 'bg-violet-500' : 'bg-zinc-900'
+                  }`}
                   title="Quarta"
                 >
                   Q
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value="4"
-                  className="w-8 h-8 rounded bg-zinc-900 "
+                  className={`w-8 h-8 rounded transition ${
+                    weekDays.includes('4') ? 'bg-violet-500' : 'bg-zinc-900'
+                  }`}
                   title="Quinta"
                 >
                   Q
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value="5"
-                  className="w-8 h-8 rounded bg-zinc-900 "
+                  className={`w-8 h-8 rounded transition ${
+                    weekDays.includes('5') ? 'bg-violet-500' : 'bg-zinc-900'
+                  }`}
                   title="Sexta"
                 >
                   S
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value="6"
-                  className="w-8 h-8 rounded bg-zinc-900 "
+                  className={`w-8 h-8 rounded transition ${
+                    weekDays.includes('6') ? 'bg-violet-500' : 'bg-zinc-900'
+                  }`}
                   title="Sábado"
                 >
                   S
