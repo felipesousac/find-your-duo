@@ -25,6 +25,7 @@ export function CreateAdModal() {
     const data = Object.fromEntries(formData)
 
     if (!data.name) {
+      //provisório
       return
     }
 
@@ -38,10 +39,10 @@ export function CreateAdModal() {
         hourEnd: data.hourEnd,
         useVoiceChannel: useVoiceChannel
       })
-      alert('Anuncio criado')
+      alert('Anuncio criado') //provisório
     } catch (err) {
       console.log(err)
-      alert('erro ao criar anuncio')
+      alert('erro ao criar anuncio') //provisório
     }
   }
 

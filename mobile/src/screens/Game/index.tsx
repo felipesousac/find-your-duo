@@ -11,12 +11,14 @@ import { THEME } from '../../theme'
 import { Heading } from '../../components/Heading'
 import { DuoCard, DuoCardProps } from '../../components/DuoCard'
 import { useEffect, useState } from 'react'
+import { DuoMatch } from '../../components/DuoMatch'
 
 export function Game() {
   const navigation = useNavigation()
   const route = useRoute()
   const game = route.params as GameParams
   const [duos, setDuos] = useState<DuoCardProps[]>([])
+  const [discordDuoSelected, setdiscordDuoSelected] = useState('cloro')
 
   function handleGoBack() {
     navigation.goBack()
@@ -69,6 +71,12 @@ export function Game() {
               Não há anúncios publicados ainda.
             </Text>
           )}
+        />
+
+        <DuoMatch
+          visible={discordDuoSelected.length > 0}
+          discord="testediscord"
+          onClose={() => setdiscordDuoSelected('')}
         />
       </SafeAreaView>
     </Background>
