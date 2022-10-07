@@ -11,6 +11,8 @@ import { Loading } from './src/components/Loading'
 
 import { Background } from './src/components/Background'
 
+import './src/services/notificationConfigs'
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
